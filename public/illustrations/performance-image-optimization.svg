@@ -1,0 +1,27 @@
+<svg width="480" height="360" viewBox="0 0 480 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="480" height="360" rx="28" fill="url(#bg)"/>
+<rect x="34" y="36" width="412" height="288" rx="24" fill="#F8FAFC" fill-opacity="0.96"/>
+<rect x="62" y="66" width="356" height="30" rx="15" fill="#E0F2FE"/>
+<rect x="74" y="75" width="86" height="12" rx="6" fill="#0284C7"/>
+<rect x="62" y="116" width="168" height="152" rx="20" fill="url(#card)"/>
+<path d="M90 226L125 186L153 214L186 170L214 226H90Z" fill="#E0F2FE"/>
+<circle cx="182" cy="152" r="18" fill="#BAE6FD"/>
+<rect x="250" y="120" width="140" height="20" rx="10" fill="#CBD5E1"/>
+<rect x="250" y="152" width="118" height="16" rx="8" fill="#E2E8F0"/>
+<rect x="250" y="182" width="128" height="16" rx="8" fill="#E2E8F0"/>
+<rect x="250" y="220" width="120" height="34" rx="17" fill="#0EA5E9"/>
+<text x="310" y="241" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="14" font-weight="700">Next/Image</text>
+<rect x="62" y="284" width="104" height="16" rx="8" fill="#BAE6FD"/>
+<rect x="178" y="284" width="88" height="16" rx="8" fill="#E2E8F0"/>
+<rect x="278" y="284" width="112" height="16" rx="8" fill="#E2E8F0"/>
+<defs>
+<linearGradient id="bg" x1="48" y1="32" x2="446" y2="332" gradientUnits="userSpaceOnUse">
+<stop stop-color="#0F172A"/>
+<stop offset="1" stop-color="#0369A1"/>
+</linearGradient>
+<linearGradient id="card" x1="62" y1="116" x2="230" y2="268" gradientUnits="userSpaceOnUse">
+<stop stop-color="#38BDF8"/>
+<stop offset="1" stop-color="#0EA5E9"/>
+</linearGradient>
+</defs>
+</svg>

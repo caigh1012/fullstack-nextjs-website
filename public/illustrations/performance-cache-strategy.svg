@@ -1,0 +1,30 @@
+<svg width="480" height="360" viewBox="0 0 480 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="480" height="360" rx="28" fill="url(#bg)"/>
+<rect x="34" y="34" width="412" height="292" rx="24" fill="#F8FAFC" fill-opacity="0.96"/>
+<rect x="64" y="74" width="104" height="72" rx="20" fill="#38BDF8"/>
+<text x="116" y="117" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="18" font-weight="700">SSG</text>
+<rect x="188" y="74" width="104" height="72" rx="20" fill="#7DD3FC"/>
+<text x="240" y="117" text-anchor="middle" fill="#0F172A" font-family="Arial, sans-serif" font-size="18" font-weight="700">ISR</text>
+<rect x="312" y="74" width="104" height="72" rx="20" fill="#BAE6FD"/>
+<text x="364" y="117" text-anchor="middle" fill="#0F172A" font-family="Arial, sans-serif" font-size="18" font-weight="700">SSR</text>
+<path d="M116 162V194" stroke="#38BDF8" stroke-width="6" stroke-linecap="round"/>
+<path d="M240 162V194" stroke="#7DD3FC" stroke-width="6" stroke-linecap="round"/>
+<path d="M364 162V194" stroke="#BAE6FD" stroke-width="6" stroke-linecap="round"/>
+<rect x="112" y="204" width="256" height="48" rx="24" fill="#0F172A"/>
+<text x="240" y="234" text-anchor="middle" fill="#E0F2FE" font-family="Arial, sans-serif" font-size="18" font-weight="700">Cache Layer</text>
+<path d="M240 252V286" stroke="#0EA5E9" stroke-width="6" stroke-linecap="round"/>
+<rect x="140" y="286" width="200" height="26" rx="13" fill="#E0F2FE"/>
+<rect x="154" y="293" width="58" height="12" rx="6" fill="#38BDF8"/>
+<rect x="222" y="293" width="42" height="12" rx="6" fill="#94A3B8"/>
+<rect x="274" y="293" width="52" height="12" rx="6" fill="#94A3B8"/>
+<circle cx="90" cy="258" r="18" fill="#E0F2FE"/>
+<text x="90" y="263" text-anchor="middle" fill="#0369A1" font-family="Arial, sans-serif" font-size="10" font-weight="700">HIT</text>
+<circle cx="390" cy="258" r="18" fill="#E0F2FE"/>
+<text x="390" y="263" text-anchor="middle" fill="#0369A1" font-family="Arial, sans-serif" font-size="10" font-weight="700">FAST</text>
+<defs>
+<linearGradient id="bg" x1="36" y1="24" x2="446" y2="334" gradientUnits="userSpaceOnUse">
+<stop stop-color="#082F49"/>
+<stop offset="1" stop-color="#1D4ED8"/>
+</linearGradient>
+</defs>
+</svg>

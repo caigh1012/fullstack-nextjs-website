@@ -1,0 +1,31 @@
+<svg width="480" height="360" viewBox="0 0 480 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="480" height="360" rx="28" fill="url(#bg)"/>
+<rect x="34" y="34" width="412" height="292" rx="24" fill="#F8FAFC" fill-opacity="0.96"/>
+<rect x="58" y="60" width="154" height="228" rx="22" fill="#0F172A"/>
+<text x="135" y="92" text-anchor="middle" fill="#BAE6FD" font-family="Arial, sans-serif" font-size="15" font-weight="700">Server</text>
+<rect x="82" y="118" width="106" height="18" rx="9" fill="#38BDF8"/>
+<rect x="82" y="150" width="88" height="18" rx="9" fill="#7DD3FC"/>
+<rect x="82" y="182" width="98" height="18" rx="9" fill="#BAE6FD"/>
+<rect x="82" y="222" width="62" height="42" rx="14" fill="#E0F2FE"/>
+<text x="113" y="248" text-anchor="middle" fill="#0369A1" font-family="Arial, sans-serif" font-size="13" font-weight="700">RSC</text>
+<rect x="268" y="60" width="154" height="228" rx="22" fill="#E0F2FE"/>
+<text x="345" y="92" text-anchor="middle" fill="#0F172A" font-family="Arial, sans-serif" font-size="15" font-weight="700">Client</text>
+<rect x="292" y="118" width="106" height="18" rx="9" fill="#CBD5E1"/>
+<rect x="292" y="150" width="88" height="18" rx="9" fill="#CBD5E1"/>
+<rect x="292" y="182" width="70" height="18" rx="9" fill="#38BDF8"/>
+<rect x="292" y="222" width="82" height="42" rx="14" fill="#0EA5E9"/>
+<text x="333" y="248" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="13" font-weight="700">UI</text>
+<path d="M220 122C242 122 238 88 260 88" stroke="#38BDF8" stroke-width="6" stroke-linecap="round"/>
+<path d="M220 160C252 160 228 124 260 124" stroke="#7DD3FC" stroke-width="6" stroke-linecap="round"/>
+<path d="M220 198C246 198 234 160 260 160" stroke="#BAE6FD" stroke-width="6" stroke-linecap="round"/>
+<rect x="96" y="304" width="292" height="12" rx="6" fill="#E2E8F0"/>
+<circle cx="128" cy="310" r="10" fill="#38BDF8"/>
+<circle cx="188" cy="310" r="10" fill="#7DD3FC"/>
+<circle cx="248" cy="310" r="10" fill="#BAE6FD"/>
+<defs>
+<linearGradient id="bg" x1="40" y1="24" x2="444" y2="336" gradientUnits="userSpaceOnUse">
+<stop stop-color="#0F172A"/>
+<stop offset="1" stop-color="#1E3A8A"/>
+</linearGradient>
+</defs>
+</svg>
