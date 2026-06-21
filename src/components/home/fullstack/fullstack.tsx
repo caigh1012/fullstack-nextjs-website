@@ -1,6 +1,39 @@
+'use client';
+
 import Image from 'next/image';
+import { useEffect, useRef, useState } from 'react';
 
 export default function Fullstack() {
+  const cardsRef = useRef<HTMLDivElement | null>(null);
+  const [hasEnteredView, setHasEnteredView] = useState(false);
+
+  useEffect(() => {
+    const cardsElement = cardsRef.current;
+
+    if (!cardsElement || hasEnteredView) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry?.isIntersecting) {
+          return;
+        }
+
+        setHasEnteredView(true);
+        observer.disconnect();
+      },
+      {
+        threshold: 0.2,
+        rootMargin: '0px 0px -10% 0px',
+      },
+    );
+
+    observer.observe(cardsElement);
+
+    return () => observer.disconnect();
+  }, [hasEnteredView]);
+
   const fullstackCards = [
     {
       title: 'SSR 服务端渲染',
@@ -34,12 +67,16 @@ export default function Fullstack() {
         <p className="mx-auto max-w-195 text-slate-600">支持 SSR / SSG / ISR / Server Actions，帮助团队更高效地组织渲染策略与业务逻辑</p>
       </div>
       <div className="flex justify-center gap-8">
-        <div className="flex flex-col gap-4 justify-center">
-          {fullstackCards.map((card) => (
+        <div
+          ref={cardsRef}
+          className="flex flex-col justify-center gap-4">
+          {fullstackCards.map((card, index) => (
             <div
-              id="44"
               key={card.title}
-              className="flex gap-4 rounded-xl ring-gray-200 ring-1 py-4">
+              className={`flex gap-4 rounded-xl py-4 ring-1 ring-gray-200 transition-all duration-700 ease-out motion-reduce:transform-none motion-reduce:transition-none ${
+                hasEnteredView ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'
+              }`}
+              style={{ transitionDelay: hasEnteredView ? `${index * 140}ms` : '0ms' }}>
               <div className="flex h-14 w-14 shrink-0 items-center justify-center bg-slate-50">
                 <div
                   className={`flex h-12 w-12 items-center justify-center rounded-[18px] bg-gradient-to-br ${card.badgeClass} text-sm font-bold tracking-[0.18em] text-white shadow-lg`}>
