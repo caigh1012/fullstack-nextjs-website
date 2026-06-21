@@ -77,17 +77,17 @@ export default function NavBar() {
             {/* 导航栏导航容器 */}
             <div className="nav-container flex items-center px-4">
               <li
-                className={clsx('px-2 transition-all duration-300 ', {
+                className={clsx('px-2 transition-all duration-300', {
                   'text-black': isFixed,
                   'text-white': !isFixed,
                   'hover:text-white/60': !isFixed,
                 })}>
                 <Link href="/">Next案例</Link>
               </li>
-              <li className={clsx('px-2 transition-all duration-300 ', { 'text-black': isFixed, 'text-white': !isFixed, 'hover:text-white/60': !isFixed })}>
+              <li className={clsx('px-2 transition-all duration-300', { 'text-black': isFixed, 'text-white': !isFixed, 'hover:text-white/60': !isFixed })}>
                 <Link href="/">文档</Link>
               </li>
-              <li className={clsx('px-2 transition-all duration-300 ', { 'text-black': isFixed, 'text-white': !isFixed, 'hover:text-white/60': !isFixed })}>
+              <li className={clsx('px-2 transition-all duration-300', { 'text-black': isFixed, 'text-white': !isFixed, 'hover:text-white/60': !isFixed })}>
                 <Link href="/">博客</Link>
               </li>
             </div>
