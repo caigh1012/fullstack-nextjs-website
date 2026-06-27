@@ -1,12 +1,8 @@
 'use client';
 
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gsap, useGSAP } from '@/lib/gsap';
 import Image from 'next/image';
 import { useRef } from 'react';
-
-gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const deploymentCards = [
   {

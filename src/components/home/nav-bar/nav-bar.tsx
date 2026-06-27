@@ -1,32 +1,17 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { useWindowScroll } from 'react-use';
 import clsx from 'clsx';
 import { useUserContext } from '@/contexts/userContext';
 
 export default function NavBar() {
-  const [isFixed, setIsFixed] = useState(false);
-
   const [isShowTip, setIsShowTip] = useState(true);
+  const { y } = useWindowScroll();
   const { user, loading, loggingOut, logout } = useUserContext();
-
-  useEffect(() => {
-    const top = isShowTip ? 48 : 0;
-    const scrollFn = () => {
-      if (document.documentElement.scrollTop > 5 + top) {
-        setIsFixed(true);
-      } else {
-        setIsFixed(false);
-      }
-    };
-    // 先执行一遍，确保滚动时刷新导致导航栏丢失
-    scrollFn();
-    document.addEventListener('scroll', scrollFn);
-    return () => {
-      document.removeEventListener('scroll', scrollFn);
-    };
-  }, [isShowTip]);
+  const top = isShowTip ? 48 : 0;
+  const isFixed = y > 5 + top;
 
   const closeTip = () => {
     document.body.classList.remove('universal-product-tip-body');

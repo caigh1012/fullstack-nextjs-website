@@ -1,12 +1,9 @@
 'use client';
 
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
+import { gsap, useGSAP } from '@/lib/gsap';
 import Image from 'next/image';
 import { useEffect, useRef, type RefObject } from 'react';
 import { useIntersection } from 'react-use';
-
-gsap.registerPlugin(useGSAP);
 
 export default function Fullstack() {
   const cardsRef = useRef<HTMLDivElement>(null);

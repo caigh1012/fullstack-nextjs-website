@@ -1,12 +1,9 @@
 'use client';
 
-import gsap from 'gsap';
-import { useGSAP } from '@gsap/react';
+import { gsap, useGSAP } from '@/lib/gsap';
 import Link from 'next/link';
 import { useEffect, useRef } from 'react';
 import Typed from 'typed.js';
-
-gsap.registerPlugin(useGSAP);
 
 const titleText = 'Next.js 是一个用于构建全栈 Web 应用程序的 React 框架。您可以使用 React 组件构建用户界面，并使用 Next.js 来实现其他功能和优化。';
 
