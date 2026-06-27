@@ -1,5 +1,6 @@
 import jwt from 'jsonwebtoken';
 import { NextRequest, NextResponse } from 'next/server';
+import { z } from 'zod';
 
 import prisma from '@/lib/database/prisma';
 
@@ -8,22 +9,21 @@ const TOKEN_EXPIRES_IN = '12h';
 const TOKEN_MAX_AGE = 60 * 60 * 12;
 const TOKEN_EXPIRES_MS = TOKEN_MAX_AGE * 1000;
 
-type LoginBody = {
-  username?: string;
-  password?: string;
-};
+const loginSchema = z.object({
+  username: z.string().trim().min(1, '请输入用户名'),
+  password: z.string().min(1, '请输入密码'),
+});
 
 export async function POST(request: NextRequest) {
   try {
-    const body = (await request.json()) as LoginBody;
-    const username = body.username?.trim();
-    const password = body.password;
+    const body = await request.json();
+    const result = loginSchema.safeParse(body);
 
-    console.log(body);
-
-    if (!username || !password) {
-      return NextResponse.json({ message: '请输入用户名和密码' }, { status: 400 });
+    if (!result.success) {
+      return NextResponse.json({ message: result.error.issues[0]?.message ?? '请求参数不正确' }, { status: 400 });
     }
+
+    const { username, password } = result.data;
 
     const user = await prisma.user.findUnique({
       where: { username },
