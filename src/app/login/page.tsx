@@ -128,7 +128,7 @@ export default function LoginPage() {
     <main className="-mt-12 relative min-h-screen overflow-hidden bg-[#0a2740] text-white">
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('/login-banner.webp')" }}
+        style={{ backgroundImage: "url('/login-banner.svg')" }}
       />
       <div className="absolute inset-0 bg-black/18" />
 
@@ -187,7 +187,7 @@ export default function LoginPage() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`mt-2 h-11 w-full rounded-sm text-sm font-medium transition disabled:cursor-not-allowed disabled:opacity-80 ${
+                  className={`mt-2 h-11 w-full rounded-sm text-sm font-medium transition disabled:cursor-not-allowed disabled:opacity-80 cursor-pointer ${
                     isSubmitReady ? 'bg-[#1677ff] text-white hover:bg-[#0958d9]' : 'bg-[#d9d9d9] text-[#7a7a7a] hover:bg-[#cfcfcf]'
                   }`}>
                   {isSubmitting ? '登录中...' : '登录'}
@@ -205,34 +205,6 @@ export default function LoginPage() {
             </form>
           </section>
         </div>
-      </div>
-
-      <div className="pointer-events-none absolute right-4 bottom-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-[#0b78ff] shadow-[0_12px_28px_rgba(0,67,168,0.45)]">
-        <svg
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-          className="h-5 w-5 fill-none stroke-white">
-          <path
-            d="M7 10h10M7 14h6"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-          />
-          <path
-            d="M12 3c4.97 0 9 3.58 9 8 0 1.96-.79 3.75-2.1 5.12L20 21l-5.03-1.67A10.4 10.4 0 0 1 12 19c-4.97 0-9-3.58-9-8s4.03-8 9-8Z"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </div>
-
-      <div className="absolute right-0 bottom-5 left-0 z-10 px-6 text-center text-[10px] text-white/75">
-        <p>2026 All Rights Reserved. 仅作界面示意使用</p>
-      </div>
-
-      <div className="absolute bottom-5 left-5 z-10 text-[10px] leading-4 text-white/80">
-        <p>拍摄图片仅作示意展示</p>
-        <p>@img: login-banner.webp</p>
       </div>
     </main>
   );

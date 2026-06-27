@@ -1,2 +1,36 @@
-# Enfore file newlines
-*  text eol=lf
+# Enforce LF line endings for text-based files only
+*.ts text eol=lf
+*.tsx text eol=lf
+*.js text eol=lf
+*.jsx text eol=lf
+*.mjs text eol=lf
+*.cjs text eol=lf
+*.json text eol=lf
+*.css text eol=lf
+*.scss text eol=lf
+*.sass text eol=lf
+*.less text eol=lf
+*.md text eol=lf
+*.mdx text eol=lf
+*.txt text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.sql text eol=lf
+*.prisma text eol=lf
+*.toml text eol=lf
+*.svg text eol=lf
+.env* text eol=lf
+.gitattributes text eol=lf
+.gitignore text eol=lf
+.editorconfig text eol=lf
+.npmrc text eol=lf
+.prettierignore text eol=lf
+
+# Exclude binary image assets from text normalization
+*.png -text
+*.jpg -text
+*.jpeg -text
+*.gif -text
+*.webp -text
+*.avif -text
+*.ico -text

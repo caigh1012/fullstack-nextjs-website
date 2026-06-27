@@ -23,15 +23,11 @@ export default function HeaderBanner() {
   }, []);
 
   return (
-    <section className="relative w-full h-170">
-      <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-[-1]">
-        <img
-          className="w-full h-full object-cover"
-          src="/banner.jpg"
-          alt="header"
-        />
-      </div>
-      <div className="h-full w-300 mx-auto text-white">
+    <section className="relative h-170 w-full overflow-hidden bg-slate-950">
+      <div className="pointer-events-none absolute inset-0 z-0 bg-[url('/banner-bg.svg')] bg-cover bg-center bg-no-repeat" />
+      <div className="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(90deg,rgba(2,6,23,0.88)_0%,rgba(2,6,23,0.64)_42%,rgba(2,6,23,0.34)_100%)]" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-44 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent" />
+      <div className="relative z-10 h-full w-300 mx-auto text-white">
         <div className="pt-34">
           <div
             ref={el}
