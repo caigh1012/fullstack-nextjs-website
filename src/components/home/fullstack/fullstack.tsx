@@ -1,38 +1,69 @@
 'use client';
 
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
 import Image from 'next/image';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, type RefObject } from 'react';
+import { useIntersection } from 'react-use';
+
+gsap.registerPlugin(useGSAP);
 
 export default function Fullstack() {
-  const cardsRef = useRef<HTMLDivElement | null>(null);
-  const [hasEnteredView, setHasEnteredView] = useState(false);
+  const cardsRef = useRef<HTMLDivElement>(null);
+  const hasAnimatedRef = useRef(false);
+  const intersection = useIntersection(cardsRef as RefObject<HTMLElement>, {
+    threshold: 0.2,
+    rootMargin: '0px 0px -10% 0px',
+  });
+
+  useGSAP(
+    () => {
+      const cards = gsap.utils.toArray<HTMLElement>('[data-fullstack-card]');
+
+      if (cards.length === 0) {
+        return;
+      }
+
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (!prefersReducedMotion) {
+        gsap.set(cards, {
+          x: -40,
+          opacity: 0,
+        });
+      }
+    },
+    { scope: cardsRef },
+  );
 
   useEffect(() => {
-    const cardsElement = cardsRef.current;
+    const cards = gsap.utils.toArray<HTMLElement>('[data-fullstack-card]');
 
-    if (!cardsElement || hasEnteredView) {
+    if (!intersection?.isIntersecting || hasAnimatedRef.current || cards.length === 0) {
       return;
     }
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry?.isIntersecting) {
-          return;
-        }
+    hasAnimatedRef.current = true;
 
-        setHasEnteredView(true);
-        observer.disconnect();
-      },
-      {
-        threshold: 0.2,
-        rootMargin: '0px 0px -10% 0px',
-      },
-    );
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    observer.observe(cardsElement);
+    if (prefersReducedMotion) {
+      gsap.set(cards, {
+        x: 0,
+        opacity: 1,
+      });
+      return;
+    }
 
-    return () => observer.disconnect();
-  }, [hasEnteredView]);
+    gsap.to(cards, {
+      x: 0,
+      opacity: 1,
+      duration: 0.7,
+      ease: 'power3.out',
+      stagger: 0.14,
+      clearProps: 'transform,opacity',
+    });
+  }, [intersection]);
 
   const fullstackCards = [
     {
@@ -70,13 +101,11 @@ export default function Fullstack() {
         <div
           ref={cardsRef}
           className="flex flex-col justify-center gap-4">
-          {fullstackCards.map((card, index) => (
+          {fullstackCards.map((card) => (
             <div
               key={card.title}
-              className={`flex gap-4 rounded-xl py-4 ring-1 ring-gray-200 transition-all duration-700 ease-out motion-reduce:transform-none motion-reduce:transition-none ${
-                hasEnteredView ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'
-              }`}
-              style={{ transitionDelay: hasEnteredView ? `${index * 140}ms` : '0ms' }}>
+              data-fullstack-card
+              className="flex gap-4 rounded-xl py-4 ring-1 ring-gray-200 will-change-transform">
               <div className="flex h-14 w-14 shrink-0 items-center justify-center bg-slate-50">
                 <div
                   className={`flex h-12 w-12 items-center justify-center rounded-[18px] bg-gradient-to-br ${card.badgeClass} text-sm font-bold tracking-[0.18em] text-white shadow-lg`}>
@@ -90,7 +119,7 @@ export default function Fullstack() {
             </div>
           ))}
         </div>
-        <div className="p-4 w-[560px]">
+        <div className="p-4 w-140">
           <Image
             src="/illustrations/fullstack-rendering-workflow.svg"
             alt="展示 SSR、SSG、ISR 与 Server Actions 协作流程的全栈开发插画"

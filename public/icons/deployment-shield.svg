@@ -1,0 +1,17 @@
+<svg width="112" height="112" viewBox="0 0 112 112" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="deployment-shield-bg" x1="20" y1="16" x2="92" y2="96" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8FAFC" />
+      <stop offset="1" stop-color="#CFFAFE" />
+    </linearGradient>
+    <linearGradient id="deployment-shield-main" x1="56" y1="28" x2="56" y2="84" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#38BDF8" />
+      <stop offset="1" stop-color="#2563EB" />
+    </linearGradient>
+  </defs>
+  <circle cx="18" cy="80" r="8" fill="white" fill-opacity="0.9" />
+  <circle cx="94" cy="76" r="10" fill="white" fill-opacity="0.82" />
+  <circle cx="56" cy="56" r="46" fill="url(#deployment-shield-bg)" />
+  <path d="M56 24L80 34V56C80 73 69.5 84.5 56 90C42.5 84.5 32 73 32 56V34L56 24Z" fill="url(#deployment-shield-main)" />
+  <path d="M45 56L53 64L68 46" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+</svg>
